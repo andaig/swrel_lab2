@@ -5,6 +5,8 @@
 package swrel_lab2;
 
 import java.util.Arrays;
+import quicksort.quicksort;
+import membershipqry.membershipqry;
 
 /**
  *
@@ -12,45 +14,6 @@ import java.util.Arrays;
  */
 public class Swrel_lab2 {
            
-    public void sortIntArray(int[] array) {
-        Arrays.sort(array);
-    }
-
- 
-    public int membershipQueryOnUnSortedArr(int[] array, int key) {
-        
-        sortIntArray(array);
-        return membershipQueryOnSortedArr(array,key);
-          
-    }
-    public int membershipQueryOnSortedArr(int[] array, int key) {
-    
-        int x,left,right;
-        
-        x=0;
-        left=0;
-        right = array.length -1;
-        
-        while ( key != array[x] && left <=right ){
-           
-            x = (left+right) >> 1;
-            
-            if( key < array[x]){
-                right = x - 1;
-            }
-            else{
-                left = x + 1;
-            }
-                
-        }
-        
-        if (key == array[x]){
-            return x;
-        }
-        else{
-            return -1;
-        }
-    }
     
     /**
      * @param args the command line arguments
@@ -60,20 +23,12 @@ public class Swrel_lab2 {
         int[] array = new int[] {48, 5, 89, 80, 81, 23, 45, 16, 2};
         int ret;
         
-        Swrel_lab2 main = new Swrel_lab2();
+        Swrel_lab2 main     = new Swrel_lab2();
+        quicksort  QS       = new quicksort();
+        membershipqry msqry = new membershipqry();
   
-        ret = main.membershipQueryOnUnSortedArr(array, 89);
+        ret = msqry.membershipQueryOnUnSortedArr(array, 89, QS);
         
-        /*    
-        main.sortIntArray(array);
-       
-        for (int i = 0; i < array.length; i++){
-            System.out.println(array[i]);
-        }
-        
-        ret = main.membershipQueryOnSortedArr(array, 33    );
-        */ 
-
         System.out.printf("Position: %d\n",ret);
         System.out.printf("Value:    %d\n",array[ret]);
         System.out.printf("Finished...");
@@ -82,3 +37,12 @@ public class Swrel_lab2 {
     }
 }
 
+
+
+        /*    
+        for (int i = 0; i < array.length; i++){
+            System.out.println(array[i]);
+        }
+        
+        ret = msqry.membershipQueryOnSortedArr(array, 33    );
+        */ 
