@@ -17,7 +17,7 @@ import org.junit.runners.Suite;
  */
 
 @RunWith(Suite.class)
-//@Suite.SuiteClasses(cicTest.CicSuite.class)
+//@Suite.SuiteClasses(qsTest.qsTest.class)
 
 public class RootSuite {
 
