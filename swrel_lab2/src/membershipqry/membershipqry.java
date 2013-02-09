@@ -12,11 +12,11 @@ import quicksort.quicksort;
  */
 public class membershipqry {
 
-    public int membershipQueryOnUnSortedArr(int[] array, int key, quicksort sortObj) {
+    public boolean membershipQueryOnUnSortedArr(int[] array, int key, quicksort sortObj) {
         
     //sanity check
     if(array == null || array.length == 0){
-      return -1;
+      return false;
     }
 
     sortObj.sort(array);
@@ -24,15 +24,15 @@ public class membershipqry {
           
     }
     
-    public int membershipQueryOnSortedArr(int[] array, int key) {
+    public boolean membershipQueryOnSortedArr(int[] array, int key) {
         
         //sanity check on input arguments
         if(array == null || array.length == 0){
-          return -1;
+          return false;
         }
         //sanity check on the array
         if (!validate(array)) {
-         return -1;
+          return false;
         }
         
         
@@ -56,10 +56,10 @@ public class membershipqry {
         }
 
         if (key == array[x]){
-            return x;
+            return true;
         }
         else{
-            return 0;
+            return false;
         }
     }
      

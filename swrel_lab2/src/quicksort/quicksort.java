@@ -51,9 +51,10 @@ public class quicksort {
         j--;
       }
       
-      //if we have found an element in the left side which is smaller than pivot,
-      //or we have found an element in the right side which is larger than pivot
-      //then swap them
+      /*if we have found an element in the left side which is smaller than pivot,
+       * or we have found an element in the right side which is larger than pivot
+       * then swap them 
+       */
       if (i <= j){
         swap(i, j);
         i++;
@@ -73,6 +74,7 @@ public class quicksort {
   private void swap(int i, int j) {
 
     int tmp = elements[i];
+    
     elements[i] = elements[j];
     elements[j] = tmp;
     

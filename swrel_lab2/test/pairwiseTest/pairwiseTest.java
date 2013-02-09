@@ -2,8 +2,11 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package randomTest;
+package pairwiseTest;
 
+import java.util.Random;
+import membershipqry.membershipqry;
+import quicksort.quicksort;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -11,28 +14,23 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-import java.util.Arrays;
-import java.util.Random;
-
-import membershipqry.membershipqry;
-import quicksort.quicksort;
 
 /**
  *
- * @author
+ * @author jbs
  */
-public class randomTest {
-
+public class pairwiseTest {
+    
   private int[] testArray;
   private int   key;
   private final static int SIZE = 200;
   private final static int MAX_VALUE = 200000;
   private quicksort sorter = new quicksort();
   private membershipqry query = new membershipqry();
-  
-    public randomTest() {
+
+  public pairwiseTest() {
     }
-    
+  
     @BeforeClass
     public static void setUpClass() {
     }
