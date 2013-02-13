@@ -10,6 +10,7 @@ import quicksort.quicksort;
  *
  * @author 
  */
+
 public class membershipqry {
 
     public boolean membershipQueryOnUnSortedArr(int[] array, int key, quicksort sortObj) {
@@ -18,8 +19,9 @@ public class membershipqry {
     if(array == null || array.length == 0){
       return false;
     }
-
+    //sorting the array
     sortObj.sort(array);
+    //membership search
     return membershipQueryOnSortedArr(array,key);
           
     }
@@ -31,7 +33,7 @@ public class membershipqry {
           return false;
         }
         //sanity check on the array
-        if (!validate(array)) {
+        if (!validateArraySorted(array)) {
           return false;
         }
         
@@ -39,14 +41,18 @@ public class membershipqry {
         int x,left,right;
 
         x=0;
-        left=0;
-        right = array.length -1;
-
-        while ( key != array[x] && left <=right ){
+        /* INJECTION-4: left = 2 */
+        left=2;
+        /* INJECTION-5: right = array.length */
+        right = array.length -1 ;
+        /* INJECTION-3: key != array[x] || left <=right */
+        /* INJECTION-6: key != array[x] && left < right */
+        while ( key != array[x] && left <= right ){
 
             x = (left+right) >> 1;
 
             if( key < array[x]){
+                /* INJECTION-1: right = x + 2 */
                 right = x - 1;
             }
             else{
@@ -54,7 +60,7 @@ public class membershipqry {
             }
 
         }
-
+        /* INJECTION-2: key != array[x] */
         if (key == array[x]){
             return true;
         }
@@ -63,7 +69,7 @@ public class membershipqry {
         }
     }
      
-     private boolean validate(int[] testArray) {
+     private boolean validateArraySorted(int[] testArray) {
       for (int i = 0; i < testArray.length - 1; i++) {
         if (testArray[i] > testArray[i + 1]) {
           return false;
